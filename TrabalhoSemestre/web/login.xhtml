@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Login</title>
+    </h:head>
+    <h:body>
+        <ui:decorate template="/template/Decorator_login.xhtml">
+            <ui:define name="context">
+                    <div class="container">
+
+                        <form class="form-signin">
+                          <h2 class="form-signin-heading">Entre com seus dados</h2>
+                          <label for="inputEmail" class="sr-only">Endereço de email</label>
+                          <input type="email" id="inputEmail" class="form-control" placeholder="Enderço de e-mail" required="" autofocus=""/>
+                          <label for="inputPassword" class="sr-only">Senha</label>
+                          <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required=""/>
+                          <div class="checkbox">
+                            <label>
+                              <input type="checkbox" value="remember-me"/> Lembre-se de mim
+                            </label>
+                          </div>
+                          <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar minha conta</button>
+                        </form>
+
+                    </div> <!-- /container -->
+                </ui:define>
+        </ui:decorate>
+    </h:body>
+</html>
+

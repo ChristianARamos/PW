@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:decorate template="/template/Decorator.xhtml">
+            <ui:define name="context">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">
+                                Cadastro de Produtos
+                            </h1>
+                            <ol class="breadcrumb">
+                                <li>
+                                    <i class="fa fa-dashboard"></i>  <a href="index.xhtml">Principal</a>
+                                </li>
+                                <li class="active">
+                                    <i class="fa fa-table"></i> Cadastro de Produtos
+                                </li>
+                            </ol>
+                        </div>
+                    </div>                
+                    <div class="row">
+                    <div class="col-lg-10">
+                    <h:form>
+
+                        <div class="row">
+                            <label>
+                                Codigo de barras: 
+                            </label>
+                            <div>
+                                <h:inputText class="form-control" value="${produtoMBean.produto.codigoBarra}"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label>
+                                Descrição:
+                            </label>
+                            <div><h:inputText class="form-control" value="${produtoMBean.produto.descricao}"/></div>
+                        </div>
+                        <div class="row">
+                            <label>
+                                Marca:
+                            </label>
+                            <div><h:inputText class="form-control" value="${produtoMBean.produto.marca}"/></div>
+                        </div>  
+                        <div class="row">
+                            <label>
+                                Peso:
+                            </label>
+                            <div><h:inputText class="form-control" value="${produtoMBean.produto.peso}"/></div>
+                        </div>
+                        <div class="row">
+                            <label>
+                                Valor:
+                            </label>
+                            <div><h:inputText class="form-control" value="${produtoMBean.produto.valor}"/></div>
+                        </div>
+                        <div class="row">
+                            <div><h:commandButton class="btn btn-default" action="${produtoMBean.salvar()}" value="Salvar"/></div>
+                        </div>
+
+                    </h:form>
+                    </div>
+                    <div class="col-lg-10">
+                    <div class="row table-responsive">
+                    <h2>Produtos</h2>
+
+                    <h:dataTable value="${produtoMBean.produtos}" var="prod" class="table table-bordered table-hover">
+                        <h:column>
+                            <f:facet name="header">Barra</f:facet>
+                            ${prod.codigoBarra}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Descrição</f:facet>
+                            ${prod.descricao}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Marca</f:facet>
+                            ${prod.marca}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Peso</f:facet>
+                            ${prod.peso}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Valor</f:facet>
+                            ${prod.valor}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Ação</f:facet>
+                            <h:commandLink action="${produtoMBean.deletar(prod.id)}" value="Excluir"/>
+                            <h:commandLink action="${produtoMBean.editar(prod)}" value="Editar"/>
+                        </h:column>
+                    </h:dataTable>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:decorate>
+    </h:body>
+</html>
+
