@@ -5,10 +5,30 @@
  */
 package br.unisc.db;
 
+import br.unisc.model.Usuario;
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+
 /**
  *
  * @author m92161
  */
 public class UsuarioJPA {
+    EntityManager em;
     
+    public UsuarioJPA(){
+        em = Persistence.createEntityManagerFactory("ExemploDecorationJSFPU").createEntityManager();
+    }
+    
+    public void inserir(Usuario usuario){
+        em.persist(usuario);
+    }
+    
+    public void atualizar(Usuario usuario){
+        em.merge(usuario);
+    }
+    
+    public Usuario buscarPorId(Long id){
+        return em.find(Usuario.class, id);
+    }
 }
