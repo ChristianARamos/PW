@@ -16,46 +16,46 @@ import javax.faces.bean.SessionScoped;
  *
  * @author simon
  */
-
 @ManagedBean
 @SessionScoped
 public class ProdutoMBean {
+
     Produto produto;
     ProdutoJPA produtoJPA;
     List<Produto> produtos;
-    
-    public ProdutoMBean(){
+
+    public ProdutoMBean() {
         produto = new Produto();
         produtoJPA = new ProdutoJPA();
         produtos = new LinkedList<Produto>();
         carregarProdutos();
     }
-    
-    public void carregarProdutos(){
+
+    public void carregarProdutos() {
         produtos = produtoJPA.buscarTodos();
     }
-    
-    public void salvar(){
+
+    public void salvar() {
         produtoJPA.begin();
-        if (produto.getId() != null){
+        if (produto.getId() != null) {
             produtoJPA.atualizar(produto);
         } else {
-            produtoJPA.inserir(produto);    
+            produtoJPA.inserir(produto);
         }
-            
+
         produtoJPA.commit();
         produto = new Produto();
         carregarProdutos();
     }
-    
-    public void deletar(Long id){
+
+    public void deletar(Long id) {
         produtoJPA.begin();
         produtoJPA.deletar(id);
         produtoJPA.commit();
         carregarProdutos();
     }
-    
-    public void editar(Produto produtoSel){
+
+    public void editar(Produto produtoSel) {
         this.produto = produtoSel;
     }
 
@@ -74,6 +74,5 @@ public class ProdutoMBean {
     public void setProdutos(List<Produto> produtos) {
         this.produtos = produtos;
     }
-    
-    
+
 }

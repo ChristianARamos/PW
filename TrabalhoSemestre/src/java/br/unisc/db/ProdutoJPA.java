@@ -16,39 +16,40 @@ import javax.persistence.Query;
  * @author simon
  */
 public class ProdutoJPA {
+
     EntityManager em;
-    
-    public ProdutoJPA(){
+
+    public ProdutoJPA() {
         em = Persistence.createEntityManagerFactory("ExemploDecorationJSFPU").createEntityManager();
     }
-    
-    public void inserir(Produto produto){
+
+    public void inserir(Produto produto) {
         em.persist(produto);
     }
-    
-    public void atualizar(Produto produto){
+
+    public void atualizar(Produto produto) {
         em.merge(produto);
     }
-    
-    public Produto buscarPorId(Long id){
-        return em.find(Produto.class,id);
+
+    public Produto buscarPorId(Long id) {
+        return em.find(Produto.class, id);
     }
-    
-    public void deletar(Long id){
+
+    public void deletar(Long id) {
         em.remove(buscarPorId(id));
     }
-    
-    public List<Produto> buscarTodos(){
+
+    public List<Produto> buscarTodos() {
         Query query = em.createQuery("select p from Produto p");
-        return query.getResultList();        
+        return query.getResultList();
     }
-    
-    public void begin(){
+
+    public void begin() {
         em.getTransaction().begin();
     }
-    
-    public void commit(){
+
+    public void commit() {
         em.getTransaction().commit();
     }
-    
+
 }

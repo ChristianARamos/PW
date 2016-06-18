@@ -17,6 +17,7 @@ import javax.persistence.Id;
  */
 @Entity
 public class Produto implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -66,7 +67,6 @@ public class Produto implements Serializable {
     public void setValor(float valor) {
         this.valor = valor;
     }
-    
 
     public Long getId() {
         return id;
@@ -100,5 +100,5 @@ public class Produto implements Serializable {
     public String toString() {
         return "br.unisc.model.Produtos[ id=" + id + " ]";
     }
-    
+
 }

@@ -11,24 +11,33 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author m92161
+ * @author Trio
  */
 public class UsuarioJPA {
+
     EntityManager em;
-    
-    public UsuarioJPA(){
+
+    public UsuarioJPA() {
         em = Persistence.createEntityManagerFactory("ExemploDecorationJSFPU").createEntityManager();
     }
-    
-    public void inserir(Usuario usuario){
+
+    public void inserir(Usuario usuario) {
         em.persist(usuario);
     }
-    
-    public void atualizar(Usuario usuario){
+
+    public void atualizar(Usuario usuario) {
         em.merge(usuario);
     }
-    
-    public Usuario buscarPorId(Long id){
+
+    public Usuario buscarPorId(Long id) {
         return em.find(Usuario.class, id);
+    }
+
+    public void begin() {
+        em.getTransaction().begin();
+    }
+
+    public void commit() {
+        em.getTransaction().commit();
     }
 }

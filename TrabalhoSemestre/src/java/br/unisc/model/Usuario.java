@@ -14,10 +14,11 @@ import javax.persistence.Id;
 
 /**
  *
- * @author m92161
+ * @author Trio
  */
 @Entity
 public class Usuario implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,10 +26,11 @@ public class Usuario implements Serializable {
     private Long id;
     @Column(length = 30)
     private String nomeUsuario;
+    private String emailUsuario;
     private String senha;
 
     public Long getId() {
-        return id;       
+        return id;
     }
 
     public void setId(Long id) {
@@ -75,5 +77,12 @@ public class Usuario implements Serializable {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
+    public String getEmailUsuario() {
+        return emailUsuario;
+    }
+
+    public void setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
+    }
 }
