@@ -6,8 +6,10 @@
 package br.unisc.db;
 
 import br.unisc.model.Usuario;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -29,8 +31,17 @@ public class UsuarioJPA {
         em.merge(usuario);
     }
 
+    public List<Usuario> buscarTodos(){
+        Query query = em.createQuery("select u from Usuario u");
+        return query.getResultList();
+    }
+    
     public Usuario buscarPorId(Long id) {
         return em.find(Usuario.class, id);
+    }
+    
+    public Usuario buscarPorEmail(String email){
+        return em.find(Usuario.class, email);
     }
 
     public void begin() {

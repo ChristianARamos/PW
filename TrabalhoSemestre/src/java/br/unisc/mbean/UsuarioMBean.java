@@ -33,6 +33,10 @@ public class UsuarioMBean {
         usuarios = new LinkedList<Usuario>();
     }
 
+    public void carregarUsuarios(){
+        usuarios = usuarioJPA.buscarTodos();
+    }
+    
     public List<Usuario> getUsuarios() {
         return usuarios;
     }
