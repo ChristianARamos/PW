@@ -20,15 +20,35 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class UsuarioMBean {
 
-    Usuario usuario;
+    private Usuario usuario;
     UsuarioJPA usuarioJPA;
-    List<Usuario> usuarios;
+    private List<Usuario> usuarios;
 
-    /**Construtor*/
+    /**
+     * Construtor
+     */
     public UsuarioMBean() {
         usuario = new Usuario();
         usuarioJPA = new UsuarioJPA();
         usuarios = new LinkedList<Usuario>();
     }
 
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(List<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public void salvar() {
+        usuarioJPA.begin();
+        usuarioJPA.inserir(usuario);
+        usuarioJPA.commit();
+        usuario = new Usuario();
+    }
+    
+    public Usuario getUsuario(){
+        return usuario;
+    }
 }

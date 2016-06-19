@@ -20,9 +20,9 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class ProdutoMBean {
 
-    Produto produto;
+    private Produto produto;
     ProdutoJPA produtoJPA;
-    List<Produto> produtos;
+    private List<Produto> produtos;
 
     public ProdutoMBean() {
         produto = new Produto();
