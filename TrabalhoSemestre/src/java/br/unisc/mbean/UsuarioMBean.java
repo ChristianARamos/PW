@@ -6,7 +6,7 @@
 package br.unisc.mbean;
 
 import br.unisc.db.UsuarioJPA;
-import br.unisc.model.Cadastro;
+import br.unisc.model.Usuario;
 import java.util.LinkedList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -20,28 +20,28 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class UsuarioMBean {
 
-    private Cadastro usuario;
+    private Usuario usuario;
     UsuarioJPA usuarioJPA;
-    private List<Cadastro> usuarios;
+    private List<Usuario> usuarios;
 
     /**
      * Construtor
      */
     public UsuarioMBean() {
-        usuario = new Cadastro();
+        usuario = new Usuario();
         usuarioJPA = new UsuarioJPA();
-        usuarios = new LinkedList<Cadastro>();
+        usuarios = new LinkedList<Usuario>();
     }
 
     public void carregarUsuarios(){
         usuarios = usuarioJPA.buscarTodos();
     }
     
-    public List<Cadastro> getUsuarios() {
+    public List<Usuario> getUsuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(List<Cadastro> usuarios) {
+    public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
 
@@ -49,10 +49,10 @@ public class UsuarioMBean {
         usuarioJPA.begin();
         usuarioJPA.inserir(usuario);
         usuarioJPA.commit();
-        usuario = new Cadastro();
+        usuario = new Usuario();
     }
     
-    public Cadastro getUsuario(){
+    public Usuario getUsuario(){
         return usuario;
     }
 }
