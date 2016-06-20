@@ -5,7 +5,7 @@
  */
 package br.unisc.db;
 
-import br.unisc.model.Usuario;
+import br.unisc.model.Cadastro;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -23,25 +23,25 @@ public class UsuarioJPA {
         em = Persistence.createEntityManagerFactory("ExemploDecorationJSFPU").createEntityManager();
     }
 
-    public void inserir(Usuario usuario) {
+    public void inserir(Cadastro usuario) {
         em.persist(usuario);
     }
 
-    public void atualizar(Usuario usuario) {
+    public void atualizar(Cadastro usuario) {
         em.merge(usuario);
     }
 
-    public List<Usuario> buscarTodos(){
+    public List<Cadastro> buscarTodos(){
         Query query = em.createQuery("select u from Usuario u");
         return query.getResultList();
     }
     
-    public Usuario buscarPorId(Long id) {
-        return em.find(Usuario.class, id);
+    public Cadastro buscarPorId(Long id) {
+        return em.find(Cadastro.class, id);
     }
     
-    public Usuario buscarPorEmail(String email){
-        return em.find(Usuario.class, email);
+    public Cadastro buscarPorEmail(String email){
+        return em.find(Cadastro.class, email);
     }
 
     public void begin() {

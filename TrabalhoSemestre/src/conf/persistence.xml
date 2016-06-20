@@ -3,7 +3,7 @@
   <persistence-unit name="ExemploDecorationJSFPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>br.unisc.model.Produto</class>
-    <class>br.unisc.model.Usuario</class>
+    <class>br.unisc.model.Cadastro</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/AulaPW"/>
