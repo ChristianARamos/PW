@@ -11,15 +11,17 @@
             <ui:define name="context">
                     <div class="container">
 
-                        <form class="form-signin">
+                        <form class="form-signin" action="principal.xhtml" method="post">
                           <h2 class="form-signin-heading">Entre com seus dados</h2>
                           <label for="inputEmail" class="sr-only">Endereço de email</label>
-                          <input type="email" id="inputEmail" class="form-control" placeholder="Enderço de e-mail" required="" autofocus=""/>
+                          <input type="email" id="inputEmail" class="form-control" placeholder="e-mail" required="" autofocus=""/>
                           <label for="inputPassword" class="sr-only">Senha</label>
                           <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required=""/>
                           
-                          <button class="btn btn-lg btn-primary btn-block" type="submit" name="acesso">Acessar minha conta</button>
-                          <button class="btn btn-lg btn-primary btn-block" type="submit" name="cadastro">Quero me cadastrar</button>
+                          <button class="btn btn-lg btn-primary btn-block" type="submit" name="acesso">Acessar</button>
+                        </form>
+                        <form class="form-signin" action="cadastro.xhtml" method="post">
+                            <button class="btn btn-lg btn-primary btn-block" type="submit" name="cadastro" >Cadastrar</button>
                         </form>
 
                     </div> <!-- /container -->
